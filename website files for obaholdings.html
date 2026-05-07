@@ -1,0 +1,288 @@
+<!DOCTYPE html><html lang="en" class="scroll-smooth"><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBA Holdings | Professional Logistics &amp; Business Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .hero-gradient { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+        .service-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .service-card:hover { transform: translateY(-5px); }
+        .hidden-state { display: none; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <div class="flex items-center justify-center w-14 h-14 rounded-3xl bg-gradient-to-br from-slate-900 via-blue-700 to-sky-500 shadow-lg">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2.5" y="2.5" width="19" height="19" rx="6.5" stroke="white" stroke-width="1.8" opacity="0.2"/>
+                        <path d="M7.5 8.5C9.5 6.5 13.5 6.5 15.5 8.5C17.5 10.5 17.5 14.5 15.5 16.5C13.5 18.5 9.5 18.5 7.5 16.5" stroke="white" stroke-width="1.9" stroke-linecap="round"/>
+                        <path d="M10.5 11.5L13.5 8.5L15 10" stroke="white" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="leading-tight">
+                    <div class="text-2xl font-semibold text-slate-900 tracking-tight">OBA<span class="text-blue-600">Holdings</span></div>
+                    <div class="text-xs uppercase tracking-[0.28em] text-slate-500">Logistics · Medical Courier · Business Services</div>
+                </div>
+            </div>
+            <div class="hidden md:flex space-x-8 font-medium text-sm">
+                <a href="#tracking" class="hover:text-blue-600 transition">Track Order</a>
+                <a href="#services" class="hover:text-blue-600 transition">Services</a>
+                <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-gradient text-white py-24 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Your Partner in Movement and Commerce</h1>
+            <p class="text-lg md:text-xl text-slate-300 mb-10">From critical medical transport to corporate catering and express courier services, OBA Holdings delivers reliability across every sector.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#tracking" class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded font-semibold transition">Track a Delivery</a>
+                <a href="#services" class="bg-white hover:bg-slate-100 text-slate-900 px-8 py-4 rounded font-semibold transition">Our Services</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Tracking Portal -->
+    <section id="tracking" class="py-20 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Order Creation & Live Tracking</h2>
+                <p class="text-slate-600 mx-auto max-w-2xl">Create a service order, receive a generated tracking ID, and look up delivery or courier status in real time.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-10">
+                <div class="bg-slate-50 p-8 rounded-xl shadow-sm border border-slate-200">
+                    <h3 class="text-2xl font-semibold mb-4">Create a New Order</h3>
+                    <div class="space-y-4">
+                        <input type="text" id="customerName" placeholder="Full Name" class="w-full px-4 py-3 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <select id="serviceType" class="w-full px-4 py-3 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="">Select Service Type</option>
+                            <option value="Passenger Transport">Passenger Transport</option>
+                            <option value="Medical Courier">Medical Courier</option>
+                            <option value="Meal Delivery">Meal Delivery</option>
+                            <option value="Express Courier">Express Courier</option>
+                            <option value="General Business">General Business</option>
+                        </select>
+                        <input type="text" id="pickupLocation" placeholder="Pickup Location" class="w-full px-4 py-3 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <input type="text" id="destination" placeholder="Destination" class="w-full px-4 py-3 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <input type="text" id="contactInfo" placeholder="Phone or Email" class="w-full px-4 py-3 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button onclick="createOrder()" class="w-full bg-blue-600 text-white px-6 py-3 rounded font-semibold hover:bg-blue-700 transition">Create Order</button>
+                    </div>
+                    <div id="createResult" class="hidden-state bg-white p-6 rounded-lg border border-blue-100 mt-6">
+                        <h4 class="text-lg font-bold mb-3">Order Created</h4>
+                        <p class="text-slate-700 mb-2">Tracking ID: <span id="newTrackingId" class="font-semibold text-slate-900"></span></p>
+                        <p class="text-slate-600 mb-2">Status: <span id="newOrderStatus"></span></p>
+                        <p class="text-slate-600">Service: <span id="newOrderService"></span></p>
+                    </div>
+                    <p id="createError" class="hidden-state text-red-500 mt-4"></p>
+                </div>
+
+                <div class="bg-slate-50 p-8 rounded-xl shadow-sm border border-slate-200">
+                    <h3 class="text-2xl font-semibold mb-4">Track an Existing Order</h3>
+                    <div class="space-y-4">
+                        <input type="text" id="trackingInput" placeholder="Enter Tracking ID (e.g., OBA12345)" class="w-full px-4 py-3 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button onclick="trackOrder()" class="w-full bg-blue-600 text-white px-6 py-3 rounded font-semibold hover:bg-blue-700 transition">Lookup Tracking</button>
+                    </div>
+                    <div id="resultArea" class="hidden-state bg-white p-8 rounded-lg border border-slate-200 text-left mt-6">
+                        <h3 class="text-lg font-bold mb-4" id="statusTitle">Order Status</h3>
+                        <div class="space-y-4">
+                            <p class="text-slate-700"><span class="font-semibold">Tracking ID:</span> <span id="displayTrackingId"></span></p>
+                            <p class="text-slate-700"><span class="font-semibold">Current Status:</span> <span id="displayStatus"></span></p>
+                            <p class="text-slate-700"><span class="font-semibold">Service:</span> <span id="displayService"></span></p>
+                            <p class="text-slate-700"><span class="font-semibold">Pickup:</span> <span id="displayPickup"></span></p>
+                            <p class="text-slate-700"><span class="font-semibold">Destination:</span> <span id="displayDestination"></span></p>
+                        </div>
+                        <div class="mt-6">
+                            <h4 class="text-sm uppercase tracking-[0.2em] text-slate-500 mb-3">Status History</h4>
+                            <div id="statusHistory" class="space-y-2 text-slate-600"></div>
+                        </div>
+                    </div>
+                    <p id="errorMsg" class="hidden-state text-red-500 mt-4"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-6 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-16">Our Specialized Divisions</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="service-card bg-white p-8 rounded-lg shadow-sm border border-slate-100">
+                <div class="text-blue-600 mb-4 text-3xl">🚕</div>
+                <h3 class="text-xl font-bold mb-3">Passenger Transport</h3>
+                <p class="text-slate-600">Professional local taxi and passenger transport services, ensuring safe and punctual travel.</p>
+            </div>
+            <div class="service-card bg-white p-8 rounded-lg shadow-sm border border-slate-100">
+                <div class="text-blue-600 mb-4 text-3xl">🏥</div>
+                <h3 class="text-xl font-bold mb-3">Medical Courier</h3>
+                <p class="text-slate-600">Secure, HIPAA-compliant transport of medical specimens and pharmaceuticals with priority handling.</p>
+            </div>
+            <div class="service-card bg-white p-8 rounded-lg shadow-sm border border-slate-100">
+                <div class="text-blue-600 mb-4 text-3xl">🍱</div>
+                <h3 class="text-xl font-bold mb-3">Meal Delivery</h3>
+                <p class="text-slate-600">Corporate catering and special occasion meal delivery, handled with white-glove care.</p>
+            </div>
+            <div class="service-card bg-white p-8 rounded-lg shadow-sm border border-slate-100">
+                <div class="text-blue-600 mb-4 text-3xl">⚡</div>
+                <h3 class="text-xl font-bold mb-3">Express Courier</h3>
+                <p class="text-slate-600">Rapid, point-to-point delivery for documents and time-sensitive materials.</p>
+            </div>
+            <div class="service-card bg-white p-8 rounded-lg shadow-sm border border-slate-100">
+                <div class="text-blue-600 mb-4 text-3xl">💼</div>
+                <h3 class="text-xl font-bold mb-3">General Business</h3>
+                <p class="text-slate-600">A versatile holding company equipped to facilitate a wide range of legal and professional business operations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-900 text-white px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">Contact OBA Holdings</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="p-6 border border-slate-700 rounded bg-slate-800">
+                    <h4 class="text-blue-400 font-semibold mb-2">Email Support</h4>
+                    <a href="mailto:support@oba-holdings.com" class="text-xl hover:text-blue-400 transition">support@oba-holdings.com</a>
+                </div>
+                <div class="p-6 border border-slate-700 rounded bg-slate-800">
+                    <h4 class="text-blue-400 font-semibold mb-2">Phone Support</h4>
+                    <a href="tel:+18888548081" class="text-xl hover:text-blue-400 transition">1 (888) 854-8081</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 text-center text-slate-500 text-sm">
+        <p>© 2026 OBA Holdings. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const apiBase = window.location.origin;
+        const apiKey = 'oba-holdings-secure-api-key-2026'; // In production, this should be securely stored
+
+        async function createOrder() {
+            const customerName = document.getElementById('customerName').value.trim();
+            const serviceType = document.getElementById('serviceType').value;
+            const pickupLocation = document.getElementById('pickupLocation').value.trim();
+            const destination = document.getElementById('destination').value.trim();
+            const contactInfo = document.getElementById('contactInfo').value.trim();
+            const createResult = document.getElementById('createResult');
+            const createError = document.getElementById('createError');
+
+            createResult.classList.add('hidden-state');
+            createError.classList.add('hidden-state');
+
+            if (!customerName || !serviceType || !pickupLocation || !destination || !contactInfo) {
+                createError.textContent = 'Please complete every field before creating an order.';
+                createError.classList.remove('hidden-state');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${apiBase}/api/orders`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-Key': apiKey
+                    },
+                    body: JSON.stringify({
+                        customerName,
+                        serviceType,
+                        pickup: pickupLocation,
+                        destination,
+                        contact: contactInfo
+                    })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    createError.textContent = data.error || 'Unable to create order. Please try again.';
+                    createError.classList.remove('hidden-state');
+                    return;
+                }
+
+                document.getElementById('newTrackingId').textContent = data.trackingId;
+                document.getElementById('newOrderStatus').textContent = data.status;
+                document.getElementById('newOrderService').textContent = data.serviceType;
+                createResult.classList.remove('hidden-state');
+
+                document.getElementById('customerName').value = '';
+                document.getElementById('serviceType').value = '';
+                document.getElementById('pickupLocation').value = '';
+                document.getElementById('destination').value = '';
+                document.getElementById('contactInfo').value = '';
+            } catch (error) {
+                createError.textContent = 'Network error creating order. Is the backend running?';
+                createError.classList.remove('hidden-state');
+            }
+        }
+
+        async function trackOrder() {
+            const input = document.getElementById('trackingInput').value.trim().toUpperCase();
+            const resultArea = document.getElementById('resultArea');
+            const errorMsg = document.getElementById('errorMsg');
+            const statusHistory = document.getElementById('statusHistory');
+
+            resultArea.classList.add('hidden-state');
+            errorMsg.classList.add('hidden-state');
+            statusHistory.innerHTML = '';
+
+            if (!input) {
+                errorMsg.textContent = 'Please enter a tracking ID.';
+                errorMsg.classList.remove('hidden-state');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${apiBase}/api/orders/${encodeURIComponent(input)}`, {
+                    headers: {
+                        'X-API-Key': apiKey
+                    }
+                });
+                const data = await response.json();
+
+                if (!response.ok) {
+                    errorMsg.textContent = data.error || 'Tracking ID not found. Please check and try again.';
+                    errorMsg.classList.remove('hidden-state');
+                    return;
+                }
+
+                document.getElementById('displayTrackingId').textContent = data.trackingId;
+                document.getElementById('displayStatus').textContent = data.status;
+                document.getElementById('displayService').textContent = data.serviceType;
+                document.getElementById('displayPickup').textContent = data.pickup;
+                document.getElementById('displayDestination').textContent = data.destination;
+
+                data.history.forEach((entry) => {
+                    const line = document.createElement('div');
+                    line.textContent = `${new Date(entry.timestamp).toLocaleString()}: ${entry.status}`;
+                    statusHistory.appendChild(line);
+                });
+
+                resultArea.classList.remove('hidden-state');
+            } catch (error) {
+                errorMsg.textContent = 'Unable to reach tracking service. Is the backend running?';
+                errorMsg.classList.remove('hidden-state');
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Page is ready
+        });
+    </script>
+
+    </script>
+
+
+</body></html>
